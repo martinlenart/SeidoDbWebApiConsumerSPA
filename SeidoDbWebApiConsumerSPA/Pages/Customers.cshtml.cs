@@ -20,6 +20,7 @@ namespace SeidoDbWebApiConsumerSPA.Pages
             Customers = Customers.OrderBy(c => c.LastName).ThenBy(c => c.FirstName).Take(10);
         }
 
+        
         public async Task<IActionResult> OnPost()
         {
             if ((NewCustomer != null) && ModelState.IsValid)
@@ -56,10 +57,10 @@ namespace SeidoDbWebApiConsumerSPA.Pages
 
             return RedirectToPage("/customers");
         }
-
-        public CustomersModel(ISeidoDbHttpService service)
+       
+        public CustomersModel()//ISeidoDbHttpService service)
         {
-            this._httpService = service;
+            this._httpService = new SeidoDbHttpService();// service;
         }
     }
 }
