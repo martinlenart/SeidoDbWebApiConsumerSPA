@@ -11,16 +11,23 @@ namespace SeidoDbWebApiConsumerSPA.Pages
 
         public IEnumerable<ICustomer> Customers { get; private set; }
         
-        [BindProperty]
-        public Customer NewCustomer { get; set; }
-
         public async Task OnGet()
         {
             Customers = await _httpService.GetCustomersAsync();
             Customers = Customers.OrderBy(c => c.LastName).ThenBy(c => c.FirstName).Take(10);
         }
+        public async Task<IActionResult> OnPostDelete(string id)
+        {
+            var CustId = new Guid(id);
+            await _httpService.DeleteCustomerAsync(CustId);
 
-        
+            return RedirectToPage("/customers");
+        }
+
+        #region Create
+        [BindProperty]
+        public Customer NewCustomer { get; set; }
+
         public async Task<IActionResult> OnPost()
         {
             if ((NewCustomer != null) && ModelState.IsValid)
@@ -29,14 +36,9 @@ namespace SeidoDbWebApiConsumerSPA.Pages
             }
             return RedirectToPage("/customers");
         }
-        public async Task<IActionResult> OnPostDelete(string id)
-        {
-            var CustId = new Guid(id);
-            await _httpService.DeleteCustomerAsync(CustId);
-            
-            return RedirectToPage("/customers");
-        }
+        #endregion
 
+        #region Update
         [BindProperty]
         public Customer UpdatedCustomer { get; set; }
 
@@ -57,7 +59,8 @@ namespace SeidoDbWebApiConsumerSPA.Pages
 
             return RedirectToPage("/customers");
         }
-       
+        #endregion
+
         public CustomersModel()//ISeidoDbHttpService service)
         {
             this._httpService = new SeidoDbHttpService();// service;

@@ -11,7 +11,7 @@ namespace SeidoDb.Web
 		public void ConfigureServices(IServiceCollection services)
         {
 			services.AddRazorPages();           //Enables Razorpages
-			//services.AddScoped<ISeidoDbHttpService, SeidoDbHttpService>();
+			services.AddScoped<ISeidoDbHttpService, SeidoDbHttpService>();
 		}
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
