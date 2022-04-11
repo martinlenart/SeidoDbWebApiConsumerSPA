@@ -1,0 +1,25 @@
+﻿@page
+@model SeidoDbWebApiConsumerSPA.Pages.OrdersModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Order List";
+}
+<div class="row">
+    <h1 class="display-2">@ViewData["Title"]</h1>
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr><th>Order Detail for customer @Model.Customer</th></tr>
+        </thead>
+        <tbody>
+            @if (@Model.Customer != null)
+            {
+                @foreach (var order in @Model.Customer.Orders)
+                {
+                    <tr>
+                        <td><a asp-page="/orders" asp-route-gender="@order.OrderID.ToString()">@order</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

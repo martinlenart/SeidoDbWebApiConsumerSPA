@@ -17,7 +17,7 @@ namespace SeidoDbWebApiConsumerSPA.Models
         public decimal Total => Value + Freight;
         public decimal VAT => Total * 0.8M;
 
-        public DateTime OrderDate { get; private set; }
+        public DateTime OrderDate { get; set; }
         public DateTime? DeliveryDate { get; set; }
 
         #region Implement IEquatable

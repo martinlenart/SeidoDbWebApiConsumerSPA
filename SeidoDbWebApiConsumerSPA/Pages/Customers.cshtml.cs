@@ -61,7 +61,7 @@ namespace SeidoDbWebApiConsumerSPA.Pages
         }
         #endregion
 
-        public CustomersModel()//ISeidoDbHttpService service)
+        public CustomersModel(ISeidoDbHttpService service)
         {
             this._httpService = new SeidoDbHttpService();// service;
         }
