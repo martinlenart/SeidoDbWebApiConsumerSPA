@@ -13,8 +13,8 @@ namespace SeidoDbWebApiConsumerSPA.Services
 
         public SeidoDbHttpService()
         {
-            _baseUri = new Uri("https://localhost:5001");
-            //_baseUri = new Uri("http://localhost:5000");
+            //_baseUri = new Uri("https://localhost:5001");
+            _baseUri = new Uri("https://ws8.seido.se");
             _headers = new Dictionary<string, string>();
         }
 

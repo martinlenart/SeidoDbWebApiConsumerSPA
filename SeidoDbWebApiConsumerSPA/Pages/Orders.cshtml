@@ -16,7 +16,7 @@
                 @foreach (var order in @Model.Customer.Orders)
                 {
                     <tr>
-                        <td><a asp-page="/orders" asp-route-gender="@order.OrderID.ToString()">@order</a></td>
+                        <td>@order</td>
                     </tr>
                 }
             }

@@ -16,7 +16,7 @@
                 @foreach (var cust in Model.Customers)
                 {
                     <tr>
-                        <td><a asp-page="/orders" asp-route-customerid="@cust.CustomerID.ToString()">@cust</a></td>
+                        <td><a asp-page="/orders" asp-route-customerid="@cust.CustomerID.ToString()">@cust</></td>
                         <form method="post">
                             <td><button class="btn btn-default" asp-page-handler="delete" asp-route-id="@cust.CustomerID.ToString()">Delete</button></td>
                             <td><button class="btn btn-default" asp-page-handler="edit" asp-route-id="@cust.CustomerID.ToString()">Edit</button></td>
