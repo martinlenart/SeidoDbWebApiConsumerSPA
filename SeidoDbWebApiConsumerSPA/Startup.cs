@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SeidoDbWebApiConsumerSPA.Services;
 
-namespace SeidoDb.Web
+namespace SeidoDbWebApiConsumerSPA
 {
 	public class Startup
 	{

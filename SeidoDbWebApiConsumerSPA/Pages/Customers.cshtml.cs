@@ -10,7 +10,8 @@ namespace SeidoDbWebApiConsumerSPA.Pages
         ISeidoDbHttpService _httpService;
 
         public IEnumerable<ICustomer> Customers { get; private set; }
-        
+        public string ConnectedService => AppConfig.ConfigurationRoot.GetConnectedDbService();
+
         public async Task OnGet()
         {
             Customers = await _httpService.GetCustomersAsync();

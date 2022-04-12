@@ -1,4 +1,4 @@
-﻿using SeidoDb.Web;
+﻿using SeidoDbWebApiConsumerSPA;
 
 Host.CreateDefaultBuilder(args)
     .ConfigureWebHostDefaults(webbuilder =>

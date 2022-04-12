@@ -14,7 +14,11 @@ namespace SeidoDbWebApiConsumerSPA.Services
         public SeidoDbHttpService()
         {
             //_baseUri = new Uri("https://localhost:5001");
-            _baseUri = new Uri("https://ws8.seido.se");
+            //_baseUri = new Uri("https://ws8.seido.se");         //SQLite Database
+            //_baseUri = new Uri("https://ws6.seido.se");         //MariaDb Database
+
+            //Using appsettings.json via AppConfig
+             _baseUri = new Uri(AppConfig.ConfigurationRoot.GetConnectedDbService());
             _headers = new Dictionary<string, string>();
         }
 
